@@ -1,0 +1,17 @@
+
+<!-- <app-login *ngIf="login"></app-login>
+<app-signup *ngIf="!login"></app-signup>
+<button class="toggle-btn" mat-flat-button (click)="toggle()" color="primary">
+  <mat-icon *ngIf="login" fontIcon="switch_right"></mat-icon>
+  <mat-icon *ngIf="!login" fontIcon="switch_left"></mat-icon>
+</button> -->
+
+<p>Home component</p>
+<mat-toolbar>Philips Health Portal</mat-toolbar>
+<!-- <button>Login</button>
+<button>Sign Up</button> -->
+
+<a routerLink="./login" routerLinkActive="active">Login</a>
+<a routerLink="./signup" routerLinkActive="active">Sign Up</a>
+
+<router-outlet></router-outlet>
