@@ -1,10 +1,13 @@
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../../model/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -15,7 +18,10 @@ export class LoginComponent {
   public email = new FormControl('', [Validators.required, Validators.email]);
   public form!: FormGroup;
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) {
     this.user = new User();
     this.form = new FormGroup({
       email: new FormControl('', [
@@ -45,15 +51,25 @@ export class LoginComponent {
   submit() {
     this.submitted = true;
     if (this.form.valid) {
-      console.log('Valid Form');
+      console.log('Valid Form', this.form);
+      let user = new User(this.form.value['email'], this.form.value['password']);
+      this.userService.loginUser(user);
     } else {
       console.log('Invalid Form');
     }
     console.log(this.form.value);
+    this.router.navigate(['./matCardDashboard']);
   }
 
   clear(): void {
     this.form.reset();
     this.submitted = false;
+  }
+
+  gotoMatcardDashboard(): any {
+    // this.http.get('http://localhost:5011', this.httpOptions).subscribe((res) =>
+    //   console.log('==== Response from Server =====', res)
+    // );
+    this.router.navigate(['./matCardDashboard']);
   }
 }

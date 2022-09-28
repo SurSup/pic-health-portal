@@ -7,12 +7,15 @@ import { MaterialModule } from '../material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
+import { MatCardDarshboardComponent } from './components/matCardDashboard/matCardDashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    MatCardDarshboardComponent
   ],
   imports: [
     CommonModule,
@@ -20,8 +23,9 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
-  exports: [LoginComponent, SignupComponent, HomeComponent]
+  exports: [LoginComponent, SignupComponent, HomeComponent, MatCardDarshboardComponent]
 })
 export class AccountsModule { }

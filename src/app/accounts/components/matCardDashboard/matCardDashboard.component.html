@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">Dashboard</mat-toolbar>
+<button mat-button routerLink="./calculator">Calculator</button>
+<button mat-button routerLink="./department">Department</button>
+<button mat-button routerLink="./hospital">Hospital</button>
+<button mat-button routerLink="./logout">Logout</button>
+
+<h1>Users: </h1>
+<hr>
+<mat-list role="list" *ngFor="let user of usersArray">
+  <mat-list-item role="listitem"><b>Email:</b> {{ user.email }}</mat-list-item>
+  <mat-list-item role="listitem"><b>Age:</b>   {{ user.age }}</mat-list-item>
+  <mat-list-item role="listitem"><b>Gender:</b> {{ user.gender }}</mat-list-item>
+</mat-list>
+
+<router-outlet></router-outlet>

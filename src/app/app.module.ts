@@ -5,10 +5,12 @@ import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
+import { TextColorDirective } from './text-color.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TextColorDirective
   ],
   imports: [
     BrowserModule,
